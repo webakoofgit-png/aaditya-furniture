@@ -1,0 +1,4 @@
+- [x] Establish the showroom design system and original imagery.
+- [ ] Build shared navigation and reusable product/inquiry patterns.
+- [ ] Build all requested showroom pages and working demo interactions.
+- [ ] Verify routes, forms, filters, responsive layout, and preview health.
