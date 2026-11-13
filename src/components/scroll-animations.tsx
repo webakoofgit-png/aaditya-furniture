@@ -28,7 +28,7 @@ export function ScrollAnimations() {
     );
     document
       .querySelectorAll(
-        ".category-card, .product-card, .gallery-card, .craft-image, .craft-copy, .proof-points > div, .value-grid article, .home-step, .material-grid article",
+        "main section:not(.home-hero):not(.category-card), .category-card, .product-card, .gallery-card, .craft-image, .craft-copy, .proof-points > div, .value-grid article, .home-step, .material-grid article",
       )
       .forEach((node) => observer.observe(node));
     const stop = () => {

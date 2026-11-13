@@ -10,10 +10,10 @@ import { businessConfig, categories, whatsappLink } from "@/lib/furniture-data";
 const allNavItems = [
   ["Home", "/"],
   ["Our story", "/about"],
-  ["Collections", "/collections"],
-  ["Bespoke", "/custom-furniture"],
-  ["Projects", "/projects"],
-  ["Trade", "/wholesale"],
+  ["Services", "/collections"],
+  ["Custom Furniture", "/custom-furniture"],
+  ["Inspiration", "/projects"],
+  ["Project Enquiry", "/wholesale"],
   ["Contact", "/contact"],
 ] as const;
 const navItems = allNavItems.filter(
@@ -37,13 +37,13 @@ export function SiteHeader() {
   return (
     <header className={`site-header ${scrolled || menuOpen ? "site-header-scrolled" : ""}`}>
       <div className="section-wrap header-inner">
-        <Link to="/" aria-label="Aaditya Furniture home" className="brand-lockup">
+        <Link to="/" aria-label="Aditya Furniture and Interior home" className="brand-lockup">
           <span className="brand-mark" aria-hidden="true">
             A
           </span>
           <span className="brand-wordmark">
-            <strong>AADITYA</strong>
-            <small>FURNITURE · INDIA</small>
+            <strong>ADITYA</strong>
+            <small>FURNITURE & INTERIOR</small>
           </span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -84,7 +84,7 @@ export function SiteHeader() {
         </nav>
         <Button asChild size="sm" className="header-inquiry">
           <a
-            href={whatsappLink("Hello, I would like to enquire about Aaditya Furniture.")}
+            href={whatsappLink("Hello, I would like to enquire about Aditya Furniture and Interior.")}
             target="_blank"
             rel="noreferrer"
           >
@@ -111,7 +111,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <a
-            href={whatsappLink("Hello, I would like to enquire about Aaditya Furniture.")}
+            href={whatsappLink("Hello, I would like to enquire about Aditya Furniture and Interior.")}
             target="_blank"
             rel="noreferrer"
           >
@@ -129,12 +129,12 @@ export function SiteFooter() {
       <div className="section-wrap footer-main">
         <div className="footer-brand">
           <Link to="/" className="footer-wordmark">
-            AADITYA<span>FURNITURE · INDIA</span>
+            ADITYA<span>FURNITURE & INTERIOR</span>
           </Link>
-          <p>Thoughtful furniture for the way we live, gather and grow.</p>
+          <p>Manufacturer of total home interior furniture with complete end-to-end solutions.</p>
           <a
             className="footer-contact"
-            href={whatsappLink("Hello, I would like to speak with the Aaditya Furniture team.")}
+            href={whatsappLink("Hello, I would like to speak with the Aditya Furniture and Interior team.")}
             target="_blank"
             rel="noreferrer"
           >
@@ -144,27 +144,25 @@ export function SiteFooter() {
         <div className="footer-column">
           <span className="eyebrow">Explore</span>
           <Link to="/about">Our story</Link>
-          <Link to="/collections">Collections</Link>
+          <Link to="/collections">Services</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/contact">Visit & contact</Link>
         </div>
         <div className="footer-column">
           <span className="eyebrow">For every space</span>
           <Link to="/collections" search={{ category: "Sofas & Seating" }}>
-            Living
+            Sofas & seating
           </Link>
           <Link to="/collections" search={{ category: "Beds & Bedroom" }}>
-            Bedroom
+            Beds & bedroom
           </Link>
           <Link to="/custom-furniture">Made to order</Link>
-          <Link to="/wholesale">Trade & bulk</Link>
+          <Link to="/wholesale">Project enquiry</Link>
         </div>
         <div className="footer-note">
           <span className="eyebrow">Visit the showroom</span>
           <p>
-            Address and opening hours
-            <br />
-            to be confirmed
+            Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank
           </p>
           <Link to="/contact" className="footer-contact">
             Plan a visit <ArrowRight size={15} />
@@ -172,10 +170,10 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="section-wrap footer-bottom">
-        <span>© {new Date().getFullYear()} Aaditya Furniture</span>
-        <span>Showroom details shown as placeholders</span>
-        <a href={whatsappLink("Hello, Aaditya Furniture.")} target="_blank" rel="noreferrer">
-          WhatsApp enquiry ↗
+        <span>© {new Date().getFullYear()} Aditya Furniture and Interior</span>
+        <span>+91 9860196472 | http://adityafurnitures.com</span>
+        <a href={whatsappLink("Hello, Aditya Furniture and Interior.")} target="_blank" rel="noreferrer">
+          WhatsApp enquiry
         </a>
       </div>
     </footer>
@@ -284,7 +282,7 @@ export function InquiryForm({
       .map((field) => `${field.label}: ${String(form.get(field.name) || "Not specified")}`)
       .join("\n");
     window.open(
-      whatsappLink(`Hello, I would like to enquire with Aaditya Furniture.\n\n${details}`),
+      whatsappLink(`Hello, I would like to enquire with Aditya Furniture and Interior.\n\n${details}`),
       "_blank",
       "noopener,noreferrer",
     );
@@ -343,7 +341,7 @@ export function InquiryForm({
         <p>
           {prepared
             ? "Your message was prepared. If WhatsApp did not open, allow pop-ups and try again."
-            : "A WhatsApp message will open with your details. Demo: choose a recipient in WhatsApp; the business number is not yet configured."}
+            : "A WhatsApp message will open with your details, addressed to Aditya Furniture and Interior."}
         </p>
       </div>
     </form>

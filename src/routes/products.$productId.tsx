@@ -5,7 +5,7 @@ import { ProductGrid } from "@/components/products";
 import { products, images } from "@/lib/furniture-data";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 export const Route = createFileRoute("/products/$productId")({
-  head: () => ({ meta: [{ title: "Furniture Detail | Aaditya Furniture" }] }),
+  head: () => ({ meta: [{ title: "Furniture Enquiry | Aditya Furniture and Interior" }] }),
   component: Detail,
 });
 function Detail() {

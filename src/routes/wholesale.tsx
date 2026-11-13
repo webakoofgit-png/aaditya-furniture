@@ -1,79 +1,22 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageIntro, InquiryForm } from "@/components/site";
 import { images } from "@/lib/furniture-data";
 export const Route = createFileRoute("/wholesale")({
-  head: () => ({ meta: [{ title: "Trade & Bulk Enquiries | Aaditya Furniture" }] }),
+  head: () => ({ meta: [{ title: "Home Interior Enquiry | Aditya Furniture and Interior" }] }),
   component: Wholesale,
 });
 function Wholesale() {
-  return (
-    <PageShell>
-      <PageIntro
-        eyebrow="For the spaces you shape"
-        title="Big ideas. Considered together."
-        description="A starting point for architects, interior designers, builders, hospitality and workplace teams."
-        image={images.office}
-      />
-      <section className="section-wrap page-section">
-        <div className="value-grid">
-          {[
-            [
-              "Residential developments",
-              "Explore coordinated furniture selections for apartments and shared spaces.",
-            ],
-            [
-              "Hospitality & workplaces",
-              "Discuss seating, tables, storage and furnishing requirements for your project.",
-            ],
-            [
-              "Design professionals",
-              "Bring your specifications and finish palette to a collaborative conversation.",
-            ],
-          ].map(([t, d]) => (
-            <article key={t}>
-              <h3 className="serif">{t}</h3>
-              <p>{d}</p>
-            </article>
-          ))}
-        </div>
-        <p className="demo-note">
-          Trade and bulk services are proposed demo offerings. Availability, minimum quantities,
-          lead times and terms require confirmation.
-        </p>
-      </section>
-      <section className="section-wrap page-section form-layout">
-        <div>
-          <span className="eyebrow">Trade enquiries</span>
-          <h2 className="serif">
-            Let's look at
-            <br />
-            the bigger picture.
-          </h2>
-          <p>Tell us about your project to prepare a bulk quotation request.</p>
-        </div>
-        <InquiryForm
-          title="Request a bulk quotation"
-          fields={[
-            { name: "business", label: "Business name", required: true },
-            { name: "name", label: "Contact person", required: true },
-            { name: "phone", label: "Phone", type: "tel", required: true },
-            { name: "email", label: "Email", type: "email", required: true },
-            {
-              name: "category",
-              label: "Product category",
-              required: true,
-              options: ["Seating", "Bedroom", "Dining", "Storage", "Office", "Mixed requirements"],
-            },
-            { name: "quantity", label: "Approximate quantity", type: "number", required: true },
-            {
-              name: "requirements",
-              label: "Project requirements",
-              type: "textarea",
-              required: true,
-            },
-          ]}
-        />
-      </section>
-    </PageShell>
-  );
+  return <PageShell>
+    <PageIntro eyebrow="Complete home interiors" title="Let's plan your project." description="Tell us what you need for your home. Our team will discuss measurements, design, materials and execution." image={images.office} />
+    <section className="section-wrap page-section form-layout">
+      <div><span className="eyebrow">Project enquiry</span><h2 className="serif">From first idea<br />to finished home.</h2><p>We provide measurement, 3D design, manufacturing and installation for complete home interior projects.</p></div>
+      <InquiryForm title="Tell us about your project" fields={[
+        { name: "name", label: "Name", required: true },
+        { name: "phone", label: "Phone", type: "tel", required: true },
+        { name: "email", label: "Email", type: "email" },
+        { name: "interest", label: "Service", options: ["Modular kitchen", "Customized furniture", "False ceiling", "Wall painting", "Wall panelling", "Complete home interior"] },
+        { name: "requirements", label: "Project details", type: "textarea", required: true },
+      ]} />
+    </section>
+  </PageShell>;
 }

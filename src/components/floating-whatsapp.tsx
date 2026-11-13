@@ -4,7 +4,7 @@ export function FloatingWhatsApp() {
   return (
     <a
       className="floating-whatsapp"
-      href={whatsappLink("Hello, I would like to enquire about Aaditya Furniture.")}
+      href={whatsappLink("Hello, I would like to enquire about Aditya Furniture and Interior.")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Enquire on WhatsApp (opens in a new tab)"

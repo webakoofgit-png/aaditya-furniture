@@ -15,12 +15,13 @@ export const images = {
 };
 
 export const categories = [
+  { name: "Modular Kitchen", image: diningImage, note: "Customized layouts & finishes" },
   { name: "Sofas & Seating", image: sofaImage, note: "Made for gathering" },
   { name: "Beds & Bedroom", image: bedroomImage, note: "A slower kind of rest" },
   { name: "Dining", image: diningImage, note: "For moments around the table" },
   { name: "Storage", image: heroImage, note: "Considered, beautifully kept" },
   { name: "Office", image: officeImage, note: "Work, with a little more ease" },
-  { name: "Custom Furniture", image: craftImage, note: "Made around your idea" },
+  { name: "Customized Furniture", image: craftImage, note: "Direct factory manufacturing" },
 ];
 
 export type Product = {
@@ -156,7 +157,7 @@ export const customSteps = [
   },
 ];
 
-// Configure only after the showroom supplies verified details. Leave blank for demo share mode.
-export const businessConfig = { whatsappNumber: "", wholesaleEnabled: true };
+// Business phone number supplied for call and WhatsApp enquiries.
+export const businessConfig = { whatsappNumber: "919860196472", wholesaleEnabled: true };
 export const whatsappLink = (message: string) =>
   `https://wa.me/${businessConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;

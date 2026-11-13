@@ -1,24 +1,23 @@
-import { HomeGallery, Testimonials, HomeProcess } from "@/components/home-extras";
-import { ProductCard } from "@/components/products";
+import { HomeGallery, Testimonials } from "@/components/home-extras";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PageShell, SectionHeading, WhatsAppButton } from "@/components/site";
-import { businessConfig, categories, images, products } from "@/lib/furniture-data";
+import { PageShell, SectionHeading } from "@/components/site";
+import { businessConfig, categories, images } from "@/lib/furniture-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aaditya Furniture | Crafted for Living" },
+      { title: "Aditya Furniture and Interior | Complete Home Interiors" },
       {
         name: "description",
         content:
-          "Discover furniture that transforms everyday spaces into timeless experiences. Explore collections and bespoke furniture from Aaditya Furniture.",
+          "Direct manufacturers of complete home interiors, modular kitchens, customized furniture, false ceilings, wall painting and panelling.",
       },
-      { property: "og:title", content: "Aaditya Furniture | Crafted for Living" },
+      { property: "og:title", content: "Aditya Furniture and Interior | Complete Home Interiors" },
       {
         property: "og:description",
-        content: "Discover considered furniture and bespoke pieces for contemporary Indian homes.",
+        content: "Manufacturer of total home interior furniture with end-to-end design, manufacturing and installation.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,58 +36,64 @@ function HomePage() {
         }}
       >
         <div className="section-wrap hero-content fade-up">
-          <span className="eyebrow">AADITYA FURNITURE · INDIA</span>
+          <span className="eyebrow">ADITYA FURNITURE AND INTERIOR</span>
           <h1 className="serif">
-            Crafted for living.
+            We Manufacture
             <br />
-            <em>Designed to inspire.</em>
+            <em>Your Dream Home.</em>
           </h1>
-          <p>Discover furniture that transforms everyday spaces into timeless experiences.</p>
+          <p>From modular kitchens and customized furniture to false ceilings, painting and wall panelling, we take your home from design to installation.</p>
           <div className="hero-actions">
             <Button asChild>
-              <Link to="/collections">
-                Explore collections <ArrowRight />
-              </Link>
+              <Link to="/collections">Explore our services <ArrowRight /></Link>
             </Button>
-            <Link to="/contact" className="hero-text-link">
-              Request a quote <ArrowUpRight size={16} />
-            </Link>
+            <Link to="/contact" className="hero-text-link">Request a quote <ArrowUpRight size={16} /></Link>
           </div>
         </div>
         <div className="hero-bottom">
-          <span>THE AADITYA EDIT</span>
-          <span>Objects for a life well lived</span>
-          <a href="#collections" aria-label="Scroll to collections">
-            <ArrowDown size={18} />
-          </a>
+          <span>DESIGN / MANUFACTURE / INSTALL</span>
+          <span>Complete end-to-end home interiors</span>
+          <a href="#collections" aria-label="Scroll to services"><ArrowDown size={18} /></a>
         </div>
       </section>
 
-      <section className="intro-band section-wrap">
-        <span className="eyebrow">FURNITURE WITH FEELING</span>
-        <p className="serif">
-          A home is never just a place. It is the shape of our days, the warmth of our rituals, and
-          the things we choose to keep.
-        </p>
-        <Link to="/about" className="text-link">
-          A little about us <ArrowRight size={16} />
-        </Link>
+      <section className="welcome-section section-wrap">
+        <div className="welcome-video-frame">
+          <video
+            className="welcome-video"
+            src="/video.mp4"
+            controls
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Aditya Furniture and Interior introduction video"
+          />
+        </div>
+        <div className="welcome-copy">
+          <span className="eyebrow">Direct manufacturers · complete solutions</span>
+          <h2 className="serif">Welcome to<br /><em>Aditya Furniture</em></h2>
+          <p>We are direct manufacturers providing complete home interior solutions end-to-end. We manufacture all kinds of home interior furniture.</p>
+          <Link to="/about" className="text-link">
+            About us <ArrowRight size={16} />
+          </Link>
+        </div>
       </section>
 
       <section className="section-wrap category-section" id="collections">
         <SectionHeading
-          eyebrow="Find your feeling"
-          title="Made for the moments that matter."
-          copy="Explore considered pieces for every corner of the home."
-          linkText="View all collections"
-          linkTo="/collections"
+          eyebrow="Our services"
+          title="Everything your home needs."
+          copy="Modular kitchens in L-shape, U-shape, parallel and island layouts; custom furniture, ceilings, painting, panelling and complete home interiors."
+          linkText="Discuss your project"
+          linkTo="/contact"
         />
-        <div className="category-grid">
+        <div className="category-grid service-card-grid">
           {categories.map((category, index) => (
             <Link
               key={category.name}
-              to={category.name === "Custom Furniture" ? "/custom-furniture" : "/collections"}
-              search={category.name === "Custom Furniture" ? {} : { category: category.name }}
+              to={category.name === "Customized Furniture" ? "/custom-furniture" : "/contact"}
               className={`category-card category-card-${index + 1}`}
             >
               <div className="image-reveal">
@@ -115,15 +120,19 @@ function HomePage() {
       <section className="signature-section">
         <div className="section-wrap">
           <SectionHeading
-            eyebrow="A few favourites"
-            title="The signature edit."
-            copy="A considered selection of pieces, materials and finishes. Ask us about making one yours."
-            linkText="Browse the collection"
-            linkTo="/collections"
+            eyebrow="Modular furniture finishes"
+            title="Choose the finish that feels right."
+            copy="Laminate, thermo laminate, digital laminate, acrylic and natural wood veneer, available in a wide range of colors, textures and designs."
+            linkText="Ask about finishes"
+            linkTo="/contact"
           />
-          <div className="product-grid home-products">
-            {products.slice(0, 6).map((product) => (
-              <ProductCard key={product.id} product={product} />
+          <div className="material-grid">
+            {["Laminate", "Thermo laminate", "Digital laminate", "Acrylic", "Veneer"].map((finish, i) => (
+              <article key={finish}>
+                <div className={`material-swatch swatch-${i}`} />
+                <h3>{finish}</h3>
+                <p>{finish === "Veneer" ? "Natural wood veneer · premium look" : "Wide range of colors, textures and designs"}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -140,18 +149,14 @@ function HomePage() {
           />
         </div>
         <div className="craft-copy">
-          <span className="eyebrow">Made with intention</span>
-          <h2 className="serif">Where craftsmanship meets contemporary living.</h2>
+          <span className="eyebrow">Customized furniture | Made by us</span>
+            <h2 className="serif">Your whole home, made to fit.</h2>
           <p>
-            Thoughtful proportions, honest materials and considered details. Each piece begins with
-            a conversation about how it will be lived with.
+            Beds, wardrobes, sofas, dining tables, TV units, shoe racks, study tables, dressing tables and more, manufactured directly for your home.
           </p>
-          <Link to="/about" className="text-link">
-            Explore our story <ArrowRight size={16} />
+          <Link to="/custom-furniture" className="text-link">
+            Explore custom furniture <ArrowRight size={16} />
           </Link>
-          <span className="craft-stamp serif">
-            A<br />F
-          </span>
         </div>
       </section>
 
@@ -162,31 +167,37 @@ function HomePage() {
         }}
       >
         <div className="section-wrap bespoke-content">
-          <span className="eyebrow">Made around you</span>
+          <span className="eyebrow">From design to execution</span>
           <h2 className="serif">
-            A good idea deserves
-            <br />a place to take shape.
+            One team for your
+            <br />complete home interior.
           </h2>
           <p>
-            Bring us a sketch, a reference or just a feeling. We’ll help you shape it into a piece
-            that belongs.
+            Measurement, 3D design, manufacturing and installation, coordinated from start to finish.
           </p>
           <Button asChild variant="outline">
             <Link to="/custom-furniture">
-              Discover bespoke <ArrowRight />
+              Plan your interior <ArrowRight />
             </Link>
           </Button>
         </div>
       </section>
 
-      <HomeProcess />
+      <section className="section-wrap home-proof">
+        <SectionHeading eyebrow="More home interior services" title="Interior work, all under one roof." />
+        <div className="proof-points">
+          <div><span>01</span><h3>False ceiling</h3><p>POP, gypsum, grid and designer ceilings with integrated lighting.</p></div>
+          <div><span>02</span><h3>Wall painting</h3><p>Asian Paints, Berger, Dulux, Nerolac and all other leading brands. Plastic paint, emulsion, lustre, enamel, texture, Royale, Tractor, distemper, PU, Duco and other finishes.</p></div>
+          <div><span>03</span><h3>Wall panelling</h3><p>WPC louvers, fluted and 3D panels, PVC, wooden and veneer, charcoal louvers, MDF CNC jali, HDHMR, fabric upholstered, metal PVD, stone or marble cladding, glass and mirror, acoustic, backlight with LED.</p></div>
+        </div>
+      </section>
       <section className="section-wrap home-proof">
         <div className="proof-heading">
-          <span className="eyebrow">A note from our studio</span>
+          <span className="eyebrow">Why choose us</span>
           <h2 className="serif">
-            Good design is felt
+            Made by manufacturers
             <br />
-            in the everyday.
+            for your whole home.
           </h2>
         </div>
         <div className="proof-points">
@@ -194,18 +205,18 @@ function HomePage() {
             <span>01</span>
             <h3>Material matters</h3>
             <p>
-              We begin with considered surfaces, natural character and the right feel in the hand.
+              Direct factory manufacturing, not trading.
             </p>
           </div>
           <div>
             <span>02</span>
-            <h3>Made personal</h3>
-            <p>Explore finishes, fabrics and thoughtful adjustments to suit your space.</p>
+            <h3>Complete interiors</h3>
+            <p>End-to-end home interior solutions, including sofas and custom furniture.</p>
           </div>
           <div>
             <span>03</span>
-            <h3>Here to help</h3>
-            <p>From first ideas to the final details, start a conversation with our team.</p>
+            <h3>More choice</h3>
+            <p>Premium laminate, thermo laminate, digital laminate, acrylic and veneer finishes, plus broad paint and panelling options.</p>
           </div>
         </div>
       </section>
@@ -222,7 +233,7 @@ function HomePage() {
               </h2>
               <p>
                 Interior designers, architects, hospitality and workplace teams are welcome to
-                enquire about trade and bulk requirements.
+                enquire about complete interior design and execution.
               </p>
             </div>
             <Button asChild variant="outline">
@@ -237,7 +248,6 @@ function HomePage() {
       <HomeGallery />
       <Testimonials />
       <section className="section-wrap visit-strip">
-        <div className="visit-mark serif">A.</div>
         <div>
           <span className="eyebrow">Come see what feels right</span>
           <h2 className="serif">A showroom visit is a good place to start.</h2>
@@ -247,7 +257,7 @@ function HomePage() {
             Plan a visit <MoveUpRight />
           </Link>
         </Button>
-        <span className="visit-placeholder">Address details to be confirmed</span>
+        <span className="visit-placeholder">Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank | +91 9860196472 | http://adityafurnitures.com</span>
       </section>
     </PageShell>
   );

@@ -1,17 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageIntro, InquiryForm, WhatsAppButton } from "@/components/site";
-import { MapPin, Clock, MessageCircle } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
 export const Route = createFileRoute("/contact")({
-  head: () => ({ meta: [{ title: "Visit & Contact | Aaditya Furniture" }] }),
+  head: () => ({ meta: [{ title: "Contact | Aditya Furniture and Interior" }] }),
   component: Contact,
 });
 function Contact() {
   return (
     <PageShell>
       <PageIntro
-        eyebrow="Our door is open"
-        title="Good spaces start with a conversation."
-        description="A piece you love, an idea to explore, a room to reimagine. We'd love to hear about it."
+        eyebrow="Aditya Furniture and Interior"
+        title="Plan your complete home interior."
+        description="Talk to our team about modular kitchens, custom furniture and end-to-end interior work."
       />
       <section className="section-wrap page-section form-layout">
         <div>
@@ -24,32 +24,20 @@ function Contact() {
           <div className="contact-detail">
             <MapPin />
             <p>
-              Showroom address
+              Official address
               <br />
-              <small>To be supplied by Aaditya Furniture</small>
-            </p>
-          </div>
-          <div className="contact-detail">
-            <Clock />
-            <p>
-              Opening hours
-              <br />
-              <small>To be confirmed before visiting</small>
+              <small>Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank</small>
             </p>
           </div>
           <div className="contact-detail">
             <MessageCircle />
             <p>
-              Phone & email
+              Phone & website
               <br />
-              <small>Business contact details pending</small>
+              <small><a href="tel:+919860196472">+91 9860196472</a> · <a href="http://adityafurnitures.com">http://adityafurnitures.com</a></small>
             </p>
           </div>
-          <WhatsAppButton message="Hello Aaditya Furniture, I would like to plan a showroom visit." />
-          <p className="demo-note">
-            Demo: WhatsApp opens a share message. A verified business number must be configured to
-            contact the showroom directly.
-          </p>
+          <WhatsAppButton message="Hello Aditya Furniture and Interior, I would like to discuss a home interior project.">Call / WhatsApp us</WhatsAppButton>
         </div>
         <InquiryForm
           title="What do you have in mind?"
@@ -61,21 +49,22 @@ function Contact() {
               name: "interest",
               label: "Interested in",
               options: [
-                "Furniture collections",
-                "Custom furniture",
-                "Bulk enquiry",
-                "Showroom visit",
+                "Modular kitchen",
+                "Customized furniture",
+                "False ceiling / painting / wall panelling",
+                "Complete home interior",
+                "Project / showroom visit",
               ],
             },
             { name: "message", label: "Your message", type: "textarea", required: true },
           ]}
         />
       </section>
-      <section className="section-wrap map-placeholder" aria-label="Showroom map placeholder">
+      <section className="section-wrap map-placeholder" aria-label="Business address">
         <MapPin size={40} />
-        <h3 className="serif">Meet us here. Soon.</h3>
-        <p>Verified showroom location and map will be added here.</p>
-        <span className="eyebrow">Location placeholder · no address supplied</span>
+        <h3 className="serif">Visit our showroom.</h3>
+        <p>Aditya Furniture and Interior<br />Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank</p>
+        <span className="eyebrow">+91 9860196472 | http://adityafurnitures.com</span>
       </section>
     </PageShell>
   );

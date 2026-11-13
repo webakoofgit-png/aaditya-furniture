@@ -3,7 +3,7 @@ import { useState } from "react";
 import { PageShell, PageIntro, InquiryForm, SectionHeading } from "@/components/site";
 import { images } from "@/lib/furniture-data";
 export const Route = createFileRoute("/custom-furniture")({
-  head: () => ({ meta: [{ title: "Bespoke Furniture | Aaditya Furniture" }] }),
+  head: () => ({ meta: [{ title: "Custom Furniture | Aditya Furniture and Interior" }] }),
   component: Custom,
 });
 const steps = [
@@ -13,7 +13,7 @@ const steps = [
   ],
   [
     "Choose materials",
-    "Discover walnut tones, natural textures and upholstery palettes that sit beautifully together.",
+    "Choose laminate, thermo laminate, digital laminate, acrylic or natural wood veneer in colors and textures to suit your home.",
   ],
   [
     "Design consultation",
@@ -33,9 +33,9 @@ function Custom() {
   return (
     <PageShell>
       <PageIntro
-        eyebrow="Bespoke, by you"
-        title="Your space. Your story."
-        description="Some pieces are found. Others begin with an idea only you could have."
+        eyebrow="Customized furniture · direct manufacturer"
+        title="Furniture for your whole home."
+        description="Beds, wardrobes, sofas, dining tables, TV units, shoe racks, study tables, dressing tables and more, made for your space."
         image={images.dining}
       />
       <section className="section-wrap page-section">
@@ -57,13 +57,13 @@ function Custom() {
         </div>
       </section>
       <section className="materials-section section-wrap">
-        <SectionHeading eyebrow="A palette of possibilities" title="Feel the difference." />
+        <SectionHeading eyebrow="Modular furniture finishes" title="Choose your finish." copy="All finishes are available in a wide range of colors, textures and designs as per your choice." />
         <div className="material-grid">
-          {["Natural walnut", "Smoked oak", "Ivory linen", "Forest upholstery"].map((m, i) => (
+          {["Laminate", "Thermo laminate", "Digital laminate", "Acrylic", "Veneer"].map((m, i) => (
             <article key={m}>
               <div className={`material-swatch swatch-${i}`} />
               <h3>{m}</h3>
-              <p>Illustrative finish · samples on consultation</p>
+              <p>{m === "Veneer" ? "Natural wood veneer · premium look" : "Available in colors, textures and designs of your choice"}</p>
             </article>
           ))}
         </div>
@@ -89,7 +89,7 @@ function Custom() {
               name: "type",
               label: "Furniture type",
               required: true,
-              options: ["Sofa & seating", "Bed", "Dining", "Storage", "Office", "Other"],
+              options: ["Modular kitchen", "Beds", "Wardrobes", "Sofas", "Dining tables", "TV units", "Shoe racks", "Study tables", "Dressing tables", "Other"],
             },
             {
               name: "budget",
