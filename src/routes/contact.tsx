@@ -34,10 +34,15 @@ function Contact() {
             <p>
               Phone & website
               <br />
-              <small><a href="tel:+919860196472">+91 9860196472</a> · <a href="http://adityafurnitures.com">http://adityafurnitures.com</a></small>
+              <small>
+                <a href="tel:+919860196472">+91 9860196472</a> ·{" "}
+                <a href="https://adityafurnitures.com">https://adityafurnitures.com</a>
+              </small>
             </p>
           </div>
-          <WhatsAppButton message="Hello Aditya Furniture and Interior, I would like to discuss a home interior project.">Call / WhatsApp us</WhatsAppButton>
+          <WhatsAppButton message="Hello Aditya Furniture and Interior, I would like to discuss a home interior project.">
+            Call / WhatsApp us
+          </WhatsAppButton>
         </div>
         <InquiryForm
           title="What do you have in mind?"
@@ -63,8 +68,12 @@ function Contact() {
       <section className="section-wrap map-placeholder" aria-label="Business address">
         <MapPin size={40} />
         <h3 className="serif">Visit our showroom.</h3>
-        <p>Aditya Furniture and Interior<br />Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank</p>
-        <span className="eyebrow">+91 9860196472 | http://adityafurnitures.com</span>
+        <p>
+          Aditya Furniture and Interior
+          <br />
+          Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank
+        </p>
+        <span className="eyebrow">+91 9860196472 | https://adityafurnitures.com</span>
       </section>
     </PageShell>
   );

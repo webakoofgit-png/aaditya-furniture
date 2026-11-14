@@ -17,7 +17,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Aditya Furniture and Interior | Complete Home Interiors" },
       {
         property: "og:description",
-        content: "Manufacturer of total home interior furniture with end-to-end design, manufacturing and installation.",
+        content:
+          "Manufacturer of total home interior furniture with end-to-end design, manufacturing and installation.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -35,25 +36,34 @@ function HomePage() {
           backgroundImage: `linear-gradient(90deg, color-mix(in oklch, var(--charcoal) 52%, transparent), color-mix(in oklch, var(--charcoal) 3%, transparent) 70%), url(${images.hero})`,
         }}
       >
-        <div className="section-wrap hero-content fade-up">
+        <div className="section-wrap hero-content">
           <span className="eyebrow">ADITYA FURNITURE AND INTERIOR</span>
           <h1 className="serif">
             We Manufacture
             <br />
             <em>Your Dream Home.</em>
           </h1>
-          <p>From modular kitchens and customized furniture to false ceilings, painting and wall panelling, we take your home from design to installation.</p>
+          <p>
+            From modular kitchens and customized furniture to false ceilings, painting and wall
+            panelling, we take your home from design to installation.
+          </p>
           <div className="hero-actions">
             <Button asChild>
-              <Link to="/collections">Explore our services <ArrowRight /></Link>
+              <Link to="/collections">
+                Explore our services <ArrowRight />
+              </Link>
             </Button>
-            <Link to="/contact" className="hero-text-link">Request a quote <ArrowUpRight size={16} /></Link>
+            <Link to="/contact" className="hero-text-link">
+              Request a quote <ArrowUpRight size={16} />
+            </Link>
           </div>
         </div>
         <div className="hero-bottom">
           <span>DESIGN / MANUFACTURE / INSTALL</span>
           <span>Complete end-to-end home interiors</span>
-          <a href="#collections" aria-label="Scroll to services"><ArrowDown size={18} /></a>
+          <a href="#collections" aria-label="Scroll to services">
+            <ArrowDown size={18} />
+          </a>
         </div>
       </section>
 
@@ -73,8 +83,15 @@ function HomePage() {
         </div>
         <div className="welcome-copy">
           <span className="eyebrow">Direct manufacturers · complete solutions</span>
-          <h2 className="serif">Welcome to<br /><em>Aditya Furniture</em></h2>
-          <p>We are direct manufacturers providing complete home interior solutions end-to-end. We manufacture all kinds of home interior furniture.</p>
+          <h2 className="serif">
+            Welcome to
+            <br />
+            <em>Aditya Furniture</em>
+          </h2>
+          <p>
+            We are direct manufacturers providing complete home interior solutions end-to-end. We
+            manufacture all kinds of home interior furniture.
+          </p>
           <Link to="/about" className="text-link">
             About us <ArrowRight size={16} />
           </Link>
@@ -127,13 +144,19 @@ function HomePage() {
             linkTo="/contact"
           />
           <div className="material-grid">
-            {["Laminate", "Thermo laminate", "Digital laminate", "Acrylic", "Veneer"].map((finish, i) => (
-              <article key={finish}>
-                <div className={`material-swatch swatch-${i}`} />
-                <h3>{finish}</h3>
-                <p>{finish === "Veneer" ? "Natural wood veneer · premium look" : "Wide range of colors, textures and designs"}</p>
-              </article>
-            ))}
+            {["Laminate", "Thermo laminate", "Digital laminate", "Acrylic", "Veneer"].map(
+              (finish, i) => (
+                <article key={finish}>
+                  <div className={`material-swatch swatch-${i}`} />
+                  <h3>{finish}</h3>
+                  <p>
+                    {finish === "Veneer"
+                      ? "Natural wood veneer · premium look"
+                      : "Wide range of colors, textures and designs"}
+                  </p>
+                </article>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -150,9 +173,10 @@ function HomePage() {
         </div>
         <div className="craft-copy">
           <span className="eyebrow">Customized furniture | Made by us</span>
-            <h2 className="serif">Your whole home, made to fit.</h2>
+          <h2 className="serif">Your whole home, made to fit.</h2>
           <p>
-            Beds, wardrobes, sofas, dining tables, TV units, shoe racks, study tables, dressing tables and more, manufactured directly for your home.
+            Beds, wardrobes, sofas, dining tables, TV units, shoe racks, study tables, dressing
+            tables and more, manufactured directly for your home.
           </p>
           <Link to="/custom-furniture" className="text-link">
             Explore custom furniture <ArrowRight size={16} />
@@ -170,10 +194,12 @@ function HomePage() {
           <span className="eyebrow">From design to execution</span>
           <h2 className="serif">
             One team for your
-            <br />complete home interior.
+            <br />
+            complete home interior.
           </h2>
           <p>
-            Measurement, 3D design, manufacturing and installation, coordinated from start to finish.
+            Measurement, 3D design, manufacturing and installation, coordinated from start to
+            finish.
           </p>
           <Button asChild variant="outline">
             <Link to="/custom-furniture">
@@ -184,11 +210,34 @@ function HomePage() {
       </section>
 
       <section className="section-wrap home-proof">
-        <SectionHeading eyebrow="More home interior services" title="Interior work, all under one roof." />
+        <SectionHeading
+          eyebrow="More home interior services"
+          title="Interior work, all under one roof."
+        />
         <div className="proof-points">
-          <div><span>01</span><h3>False ceiling</h3><p>POP, gypsum, grid and designer ceilings with integrated lighting.</p></div>
-          <div><span>02</span><h3>Wall painting</h3><p>Asian Paints, Berger, Dulux, Nerolac and all other leading brands. Plastic paint, emulsion, lustre, enamel, texture, Royale, Tractor, distemper, PU, Duco and other finishes.</p></div>
-          <div><span>03</span><h3>Wall panelling</h3><p>WPC louvers, fluted and 3D panels, PVC, wooden and veneer, charcoal louvers, MDF CNC jali, HDHMR, fabric upholstered, metal PVD, stone or marble cladding, glass and mirror, acoustic, backlight with LED.</p></div>
+          <div>
+            <span>01</span>
+            <h3>False ceiling</h3>
+            <p>POP, gypsum, grid and designer ceilings with integrated lighting.</p>
+          </div>
+          <div>
+            <span>02</span>
+            <h3>Wall painting</h3>
+            <p>
+              Asian Paints, Berger, Dulux, Nerolac and all other leading brands. Plastic paint,
+              emulsion, lustre, enamel, texture, Royale, Tractor, distemper, PU, Duco and other
+              finishes.
+            </p>
+          </div>
+          <div>
+            <span>03</span>
+            <h3>Wall panelling</h3>
+            <p>
+              WPC louvers, fluted and 3D panels, PVC, wooden and veneer, charcoal louvers, MDF CNC
+              jali, HDHMR, fabric upholstered, metal PVD, stone or marble cladding, glass and
+              mirror, acoustic, backlight with LED.
+            </p>
+          </div>
         </div>
       </section>
       <section className="section-wrap home-proof">
@@ -204,9 +253,7 @@ function HomePage() {
           <div>
             <span>01</span>
             <h3>Material matters</h3>
-            <p>
-              Direct factory manufacturing, not trading.
-            </p>
+            <p>Direct factory manufacturing, not trading.</p>
           </div>
           <div>
             <span>02</span>
@@ -216,7 +263,10 @@ function HomePage() {
           <div>
             <span>03</span>
             <h3>More choice</h3>
-            <p>Premium laminate, thermo laminate, digital laminate, acrylic and veneer finishes, plus broad paint and panelling options.</p>
+            <p>
+              Premium laminate, thermo laminate, digital laminate, acrylic and veneer finishes, plus
+              broad paint and panelling options.
+            </p>
           </div>
         </div>
       </section>
@@ -257,7 +307,10 @@ function HomePage() {
             Plan a visit <MoveUpRight />
           </Link>
         </Button>
-        <span className="visit-placeholder">Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank | +91 9860196472 | http://adityafurnitures.com</span>
+        <span className="visit-placeholder">
+          Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank | +91 9860196472 |
+          https://adityafurnitures.com
+        </span>
       </section>
     </PageShell>
   );

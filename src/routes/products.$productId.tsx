@@ -1,28 +1,28 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell, WhatsAppButton, SectionHeading } from "@/components/site";
 import { ProductGrid } from "@/components/products";
 import { products, images } from "@/lib/furniture-data";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 export const Route = createFileRoute("/products/$productId")({
-  head: () => ({ meta: [{ title: "Furniture Enquiry | Aditya Furniture and Interior" }] }),
+  loader: ({ params }) => {
+    const product = products.find((item) => item.id === params.productId);
+    if (!product) throw notFound();
+    return product;
+  },
+  head: ({ loaderData }) => ({
+    meta: [
+      { title: `${loaderData?.name ?? "Furniture"} | Aditya Furniture and Interior` },
+      { name: "description", content: loaderData?.description ?? "Custom furniture enquiry." },
+    ],
+  }),
   component: Detail,
 });
 function Detail() {
-  const { productId } = Route.useParams();
-  const p = products.find((p) => p.id === productId);
+  const p = Route.useLoaderData();
   const [finish, setFinish] = useState("");
   const [photo, setPhoto] = useState(0);
   const [zoom, setZoom] = useState(false);
-  if (!p)
-    return (
-      <PageShell>
-        <section className="section-wrap page-section missing-product">
-          <h1 className="serif">This piece is not in our collection.</h1>
-          <Link to="/collections">Explore all furniture →</Link>
-        </section>
-      </PageShell>
-    );
   const photos = [p.image, images.craft];
   const selected = p.finishes.includes(finish) ? finish : p.finishes[0];
   return (

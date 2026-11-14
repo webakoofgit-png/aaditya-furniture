@@ -2,31 +2,50 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell, PageIntro, InquiryForm, SectionHeading } from "@/components/site";
 import { images } from "@/lib/furniture-data";
+import processShareIdea from "@/assets/process-share-idea.jpg";
+import processChooseMaterials from "@/assets/process-choose-materials.jpg";
+import processDesignConsultation from "@/assets/process-design-consultation.jpg";
+import processProduction from "@/assets/process-production.jpg";
+import processDelivery from "@/assets/process-delivery.jpg";
 export const Route = createFileRoute("/custom-furniture")({
   head: () => ({ meta: [{ title: "Custom Furniture | Aditya Furniture and Interior" }] }),
   component: Custom,
 });
 const steps = [
-  [
-    "Share your idea",
-    "A sketch, a saved reference or the dimensions of your favourite corner. Every good piece starts with you.",
-  ],
-  [
-    "Choose materials",
-    "Choose laminate, thermo laminate, digital laminate, acrylic or natural wood veneer in colors and textures to suit your home.",
-  ],
-  [
-    "Design consultation",
-    "Discuss proportions, practical needs and the details that make the piece yours.",
-  ],
-  [
-    "Production",
-    "Once the design and quote are approved, confirm the making schedule with the team.",
-  ],
-  [
-    "Delivery",
-    "Discuss access, installation requirements and delivery arrangements for your space.",
-  ],
+  {
+    title: "Share your idea",
+    description:
+      "A sketch, a saved reference or the dimensions of your favourite corner. Every good piece starts with you.",
+    image: processShareIdea,
+    imageAlt: "A furniture concept being sketched beside a mood board and material samples",
+  },
+  {
+    title: "Choose materials",
+    description:
+      "Choose laminate, thermo laminate, digital laminate, acrylic or natural wood veneer in colors and textures to suit your home.",
+    image: processChooseMaterials,
+    imageAlt: "Wood, fabric and finish samples being selected for a custom furniture piece",
+  },
+  {
+    title: "Design consultation",
+    description: "Discuss proportions, practical needs and the details that make the piece yours.",
+    image: processDesignConsultation,
+    imageAlt: "A designer and client reviewing a furniture drawing and material palette",
+  },
+  {
+    title: "Production",
+    description:
+      "Once the design and quote are approved, confirm the making schedule with the team.",
+    image: processProduction,
+    imageAlt: "A furniture craftsperson hand-planing a walnut cabinet in the workshop",
+  },
+  {
+    title: "Delivery",
+    description:
+      "Discuss access, installation requirements and delivery arrangements for your space.",
+    image: processDelivery,
+    imageAlt: "Installers carefully positioning a finished walnut cabinet in a home",
+  },
 ];
 function Custom() {
   const [step, setStep] = useState(0);
@@ -43,27 +62,55 @@ function Custom() {
           eyebrow="From first thought to final detail"
           title="A conversation, then a creation."
         />
-        <div className="process-tabs">
-          {steps.map(([title], i) => (
-            <button key={title} aria-pressed={step === i} onClick={() => setStep(i)}>
-              <span>0{i + 1}</span>
-              {title}
-            </button>
-          ))}
-        </div>
-        <div className="process-description" aria-live="polite">
-          <h3 className="serif">{steps[step]![0]}</h3>
-          <p>{steps[step]![1]}</p>
+        <div className="process-flow">
+          <div className="process-tabs">
+            {steps.map(({ title }, i) => (
+              <button
+                key={title}
+                type="button"
+                aria-pressed={step === i}
+                aria-controls="process-panel"
+                onClick={() => setStep(i)}
+              >
+                <span>0{i + 1}</span>
+                {title}
+              </button>
+            ))}
+          </div>
+          <div className="process-description" id="process-panel" aria-live="polite">
+            <div className="process-copy" key={`copy-${step}`}>
+              <span className="eyebrow">Step 0{step + 1}</span>
+              <h3 className="serif">{steps[step]!.title}</h3>
+              <p>{steps[step]!.description}</p>
+            </div>
+            <div className="process-image">
+              <img
+                key={`image-${step}`}
+                src={steps[step]!.image}
+                alt={steps[step]!.imageAlt}
+                width={1200}
+                height={800}
+              />
+            </div>
+          </div>
         </div>
       </section>
       <section className="materials-section section-wrap">
-        <SectionHeading eyebrow="Modular furniture finishes" title="Choose your finish." copy="All finishes are available in a wide range of colors, textures and designs as per your choice." />
+        <SectionHeading
+          eyebrow="Modular furniture finishes"
+          title="Choose your finish."
+          copy="All finishes are available in a wide range of colors, textures and designs as per your choice."
+        />
         <div className="material-grid">
           {["Laminate", "Thermo laminate", "Digital laminate", "Acrylic", "Veneer"].map((m, i) => (
             <article key={m}>
               <div className={`material-swatch swatch-${i}`} />
               <h3>{m}</h3>
-              <p>{m === "Veneer" ? "Natural wood veneer · premium look" : "Available in colors, textures and designs of your choice"}</p>
+              <p>
+                {m === "Veneer"
+                  ? "Natural wood veneer · premium look"
+                  : "Available in colors, textures and designs of your choice"}
+              </p>
             </article>
           ))}
         </div>
@@ -89,7 +136,18 @@ function Custom() {
               name: "type",
               label: "Furniture type",
               required: true,
-              options: ["Modular kitchen", "Beds", "Wardrobes", "Sofas", "Dining tables", "TV units", "Shoe racks", "Study tables", "Dressing tables", "Other"],
+              options: [
+                "Modular kitchen",
+                "Beds",
+                "Wardrobes",
+                "Sofas",
+                "Dining tables",
+                "TV units",
+                "Shoe racks",
+                "Study tables",
+                "Dressing tables",
+                "Other",
+              ],
             },
             {
               name: "budget",

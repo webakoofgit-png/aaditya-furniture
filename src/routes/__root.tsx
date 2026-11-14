@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { SitePreloader } from "../components/site-preloader";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -79,10 +80,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Aditya Furniture and Interior | Complete Home Interiors" },
-      { name: "description", content: "Discover considered furniture and bespoke pieces for contemporary Indian homes." },
+      {
+        name: "description",
+        content: "Discover considered furniture and bespoke pieces for contemporary Indian homes.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Aditya Furniture and Interior | Complete Home Interiors" },
-      { property: "og:description", content: "Discover considered furniture and bespoke pieces for contemporary Indian homes." },
+      {
+        property: "og:description",
+        content: "Discover considered furniture and bespoke pieces for contemporary Indian homes.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -95,7 +102,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -109,6 +119,9 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <noscript>
+          <style>{`.site-preloader { display: none !important; }`}</style>
+        </noscript>
       </head>
       <body>
         {children}
@@ -123,6 +136,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <SitePreloader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

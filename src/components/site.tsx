@@ -1,4 +1,3 @@
-import { FloatingWhatsApp } from "@/components/floating-whatsapp";
 import { ScrollAnimations } from "@/components/scroll-animations";
 import { Reveal } from "@/components/reveal";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
@@ -84,7 +83,9 @@ export function SiteHeader() {
         </nav>
         <Button asChild size="sm" className="header-inquiry">
           <a
-            href={whatsappLink("Hello, I would like to enquire about Aditya Furniture and Interior.")}
+            href={whatsappLink(
+              "Hello, I would like to enquire about Aditya Furniture and Interior.",
+            )}
             target="_blank"
             rel="noreferrer"
           >
@@ -111,7 +112,9 @@ export function SiteHeader() {
             </Link>
           ))}
           <a
-            href={whatsappLink("Hello, I would like to enquire about Aditya Furniture and Interior.")}
+            href={whatsappLink(
+              "Hello, I would like to enquire about Aditya Furniture and Interior.",
+            )}
             target="_blank"
             rel="noreferrer"
           >
@@ -134,7 +137,9 @@ export function SiteFooter() {
           <p>Manufacturer of total home interior furniture with complete end-to-end solutions.</p>
           <a
             className="footer-contact"
-            href={whatsappLink("Hello, I would like to speak with the Aditya Furniture and Interior team.")}
+            href={whatsappLink(
+              "Hello, I would like to speak with the Aditya Furniture and Interior team.",
+            )}
             target="_blank"
             rel="noreferrer"
           >
@@ -161,9 +166,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-note">
           <span className="eyebrow">Visit the showroom</span>
-          <p>
-            Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank
-          </p>
+          <p>Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank</p>
           <Link to="/contact" className="footer-contact">
             Plan a visit <ArrowRight size={15} />
           </Link>
@@ -171,8 +174,12 @@ export function SiteFooter() {
       </div>
       <div className="section-wrap footer-bottom">
         <span>© {new Date().getFullYear()} Aditya Furniture and Interior</span>
-        <span>+91 9860196472 | http://adityafurnitures.com</span>
-        <a href={whatsappLink("Hello, Aditya Furniture and Interior.")} target="_blank" rel="noreferrer">
+        <span>+91 9860196472 | https://adityafurnitures.com</span>
+        <a
+          href={whatsappLink("Hello, Aditya Furniture and Interior.")}
+          target="_blank"
+          rel="noreferrer"
+        >
           WhatsApp enquiry
         </a>
       </div>
@@ -189,7 +196,6 @@ export function PageShell({ children }: { children: ReactNode }) {
       <SiteHeader />
       <main id="main-content">{children}</main>
       <SiteFooter />
-      <FloatingWhatsApp />
       <ScrollAnimations />
     </>
   );
@@ -282,7 +288,9 @@ export function InquiryForm({
       .map((field) => `${field.label}: ${String(form.get(field.name) || "Not specified")}`)
       .join("\n");
     window.open(
-      whatsappLink(`Hello, I would like to enquire with Aditya Furniture and Interior.\n\n${details}`),
+      whatsappLink(
+        `Hello, I would like to enquire with Aditya Furniture and Interior.\n\n${details}`,
+      ),
       "_blank",
       "noopener,noreferrer",
     );

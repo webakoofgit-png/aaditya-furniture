@@ -47,7 +47,10 @@ export function Testimonials() {
     return () => window.clearInterval(timer);
   }, []);
 
-  const visibleQuotes = Array.from({ length: visibleCount }, (_, offset) => (i + offset) % quotes.length);
+  const visibleQuotes = Array.from(
+    { length: visibleCount },
+    (_, offset) => (i + offset) % quotes.length,
+  );
 
   return (
     <section className="section-wrap testimonials">
@@ -55,7 +58,9 @@ export function Testimonials() {
       <div className="testimonial-grid" aria-live="polite">
         {visibleQuotes.map((quoteIndex) => (
           <article className="testimonial-card" key={quoteIndex}>
-            <span className="testimonial-mark" aria-hidden="true">“</span>
+            <span className="testimonial-mark" aria-hidden="true">
+              “
+            </span>
             <blockquote>{quotes[quoteIndex]}</blockquote>
             <span className="eyebrow">Home interior inspiration</span>
           </article>
@@ -63,9 +68,18 @@ export function Testimonials() {
       </div>
       <p className="demo-note">Sample testimonials · placeholder copy, not customer reviews.</p>
       <div className="testimonial-controls">
-        <button aria-label="Previous testimonials" onClick={() => setI((i + quotes.length - 1) % quotes.length)}>←</button>
-        <span>{String(i + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}</span>
-        <button aria-label="Next testimonials" onClick={() => setI((i + 1) % quotes.length)}>→</button>
+        <button
+          aria-label="Previous testimonials"
+          onClick={() => setI((i + quotes.length - 1) % quotes.length)}
+        >
+          ←
+        </button>
+        <span>
+          {String(i + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}
+        </span>
+        <button aria-label="Next testimonials" onClick={() => setI((i + 1) % quotes.length)}>
+          →
+        </button>
       </div>
     </section>
   );
@@ -75,7 +89,13 @@ export function HomeProcess() {
     <section className="section-wrap page-section">
       <SectionHeading eyebrow="An idea, made real" title="A piece that is entirely yours." />
       <div className="process-tabs">
-        {["Share your idea", "Choose materials", "Design consultation", "Production", "Delivery"].map((s, i) => (
+        {[
+          "Share your idea",
+          "Choose materials",
+          "Design consultation",
+          "Production",
+          "Delivery",
+        ].map((s, i) => (
           <Link key={s} to="/custom-furniture" className="home-step">
             <span className="eyebrow">0{i + 1}</span>
             <h3 className="serif">{s}</h3>
