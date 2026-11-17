@@ -845,16 +845,17 @@ button:disabled {
   gap: 26px;
 }
 .proof-points span {
-  font-size: 11px;
+  font-size: 16px;
   color: var(--walnut);
 }
 .proof-points h3 {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 21px;
+  font-weight: 600;
   margin: 25px 0 14px;
 }
 .proof-points p {
-  font-size: 11px;
+  font-size: 18px !important;
+  line-height: 1.7;
   color: var(--muted-foreground);
 }
 .trade-band {
@@ -1329,11 +1330,13 @@ button:disabled {
   background: repeating-linear-gradient(90deg, #26352d, #3b4b3e 2px, #26352d 3px);
 }
 .material-grid h3 {
-  font-size: 13px;
+  font-size: 21px;
+  font-weight: 600;
   margin: 17px 0 8px;
 }
 .material-grid p {
-  font-size: 10px;
+  font-size: 18px !important;
+  line-height: 1.65;
   color: var(--muted-foreground);
 }
 .form-layout {
@@ -2706,4 +2709,118 @@ html.preloader-active body {
   .related-service-card {
     height: 380px;
   }
+}
+
+/* Readability pass: keep supporting copy comfortably legible across the site. */
+.eyebrow {
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.desktop-nav,
+.header-inquiry,
+.hero-text-link,
+.text-link,
+.footer-contact,
+.filter-tabs button,
+.collection-tools input,
+.collection-tools select,
+.field,
+.lightbox-controls {
+  font-size: 13px;
+}
+.hero-content p,
+.welcome-copy p,
+.craft-copy p,
+.bespoke-content p,
+.trade-inner p,
+.page-intro p,
+.detail-copy > p,
+.form-layout > div > p,
+.service-detail-copy > p,
+.about-body,
+.process-description p {
+  font-size: 15px;
+}
+.value-grid p,
+.proof-points p,
+.product-info > p,
+.material-grid p,
+.footer-brand p,
+.footer-note p,
+.contact-detail small,
+.form-submit p,
+.demo-note,
+.testimonial-controls,
+.related-service-card p,
+.service-process-grid p {
+  font-size: 12px !important;
+}
+.footer-column,
+.contact-detail p,
+.service-highlights span,
+.product-meta,
+.service-back-link {
+  font-size: 13px;
+}
+.footer-bottom {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.brand-wordmark small,
+.footer-wordmark-copy small {
+  font-size: 9px;
+}
+.service-option-grid h3 {
+  font-size: 18px;
+}
+
+/* Enforce a readable floor for every remaining micro-text treatment. */
+body {
+  font-size: 16px;
+}
+p {
+  font-size: 16px !important;
+}
+small,
+label,
+input,
+select,
+textarea,
+button,
+.eyebrow,
+.text-link,
+.hero-text-link,
+.header-inquiry,
+.hero-bottom,
+.product-index,
+.product-info > .eyebrow,
+.product-meta,
+.quick-view,
+.filter-tabs button,
+.collection-tools,
+.demo-note,
+.lightbox-controls,
+.footer-column,
+.footer-contact,
+.footer-bottom,
+.contact-detail small,
+.field,
+.form-submit p,
+.service-back-link,
+.service-highlights span,
+.service-option-grid span,
+.service-process-grid > article > span,
+.value-grid article > span,
+.preloader-status {
+  font-size: 14px !important;
+  line-height: 1.55;
+}
+.desktop-nav,
+.mobile-nav {
+  font-size: 15px !important;
+}
+.brand-wordmark small,
+.footer-wordmark-copy small,
+.preloader-wordmark small {
+  font-size: 12px !important;
 }
