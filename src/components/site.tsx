@@ -4,7 +4,9 @@ import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowRight, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { businessConfig, categories, whatsappLink } from "@/lib/furniture-data";
+import { businessConfig, whatsappLink } from "@/lib/furniture-data";
+import { services } from "@/lib/service-data";
+import brandLogo from "@/assets/aditya-furniture-logo.webp";
 
 const allNavItems = [
   ["Home", "/"],
@@ -37,9 +39,7 @@ export function SiteHeader() {
     <header className={`site-header ${scrolled || menuOpen ? "site-header-scrolled" : ""}`}>
       <div className="section-wrap header-inner">
         <Link to="/" aria-label="Aditya Furniture and Interior home" className="brand-lockup">
-          <span className="brand-mark" aria-hidden="true">
-            A
-          </span>
+          <img className="brand-mark" src={brandLogo} alt="" width="52" height="52" />
           <span className="brand-wordmark">
             <strong>ADITYA</strong>
             <small>FURNITURE & INTERIOR</small>
@@ -56,15 +56,15 @@ export function SiteHeader() {
                 >
                   {label}
                 </Link>
-                <div className="mega-menu" aria-label="Furniture categories">
-                  {categories.map((c) => (
+                <div className="mega-menu" aria-label="Interior services">
+                  {services.map((service) => (
                     <Link
-                      key={c.name}
-                      to={c.name === "Custom Furniture" ? "/custom-furniture" : "/collections"}
-                      search={c.name === "Custom Furniture" ? {} : { category: c.name }}
+                      key={service.id}
+                      to="/services/$serviceId"
+                      params={{ serviceId: service.id }}
                     >
-                      {c.name}
-                      <small>{c.note}</small>
+                      {service.name}
+                      <small>{service.shortDescription}</small>
                     </Link>
                   ))}
                 </div>
@@ -132,7 +132,10 @@ export function SiteFooter() {
       <div className="section-wrap footer-main">
         <div className="footer-brand">
           <Link to="/" className="footer-wordmark">
-            ADITYA<span>FURNITURE & INTERIOR</span>
+            <img className="footer-logo" src={brandLogo} alt="" width="72" height="72" />
+            <span className="footer-wordmark-copy">
+              ADITYA<small>FURNITURE &amp; INTERIOR</small>
+            </span>
           </Link>
           <p>Manufacturer of total home interior furniture with complete end-to-end solutions.</p>
           <a
@@ -166,15 +169,27 @@ export function SiteFooter() {
         </div>
         <div className="footer-note">
           <span className="eyebrow">Visit the showroom</span>
-          <p>Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank</p>
+          <p>{businessConfig.address}</p>
+          <p>
+            Open {businessConfig.businessHours}
+            <br />
+            Closed every {businessConfig.closedDay}
+          </p>
           <Link to="/contact" className="footer-contact">
             Plan a visit <ArrowRight size={15} />
           </Link>
         </div>
       </div>
       <div className="section-wrap footer-bottom">
-        <span>© {new Date().getFullYear()} Aditya Furniture and Interior</span>
-        <span>+91 9860196472 | https://adityafurnitures.com</span>
+        <span>
+          © {new Date().getFullYear()} {businessConfig.name}
+        </span>
+        <span>
+          <a href={businessConfig.phoneNumbers[0].href}>{businessConfig.phoneNumbers[0].label}</a>
+          {" / "}
+          <a href={businessConfig.phoneNumbers[1].href}>{businessConfig.phoneNumbers[1].label}</a>
+        </span>
+        <a href={`mailto:${businessConfig.email}`}>{businessConfig.email}</a>
         <a
           href={whatsappLink("Hello, Aditya Furniture and Interior.")}
           target="_blank"

@@ -5,6 +5,7 @@ const SECURITY_HEADERS = {
     "connect-src 'self'",
     "font-src 'self' https://fonts.gstatic.com",
     "form-action 'self'",
+    "frame-src https://www.google.com",
     "frame-ancestors 'none'",
     "img-src 'self' data:",
     "media-src 'self'",

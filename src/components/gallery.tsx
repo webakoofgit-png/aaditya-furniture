@@ -4,12 +4,13 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 export function Gallery() {
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState<number | null>(null);
+  const filters = ["All", ...new Set(projectGallery.map((item) => item.type))];
   const items = projectGallery.filter((p) => filter === "All" || p.type === filter);
   const current = selected === null ? null : items[selected];
   return (
     <>
       <div className="filter-tabs">
-        {["All", "Residential", "Commercial", "Custom Furniture"].map((f) => (
+        {filters.map((f) => (
           <button
             key={f}
             aria-pressed={filter === f}

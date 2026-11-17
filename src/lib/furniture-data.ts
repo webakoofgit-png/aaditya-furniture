@@ -126,12 +126,13 @@ export const products: Product[] = [
 ];
 
 export const projectGallery = [
-  { title: "A softer living room", type: "Residential", image: heroImage },
-  { title: "A considered bedroom", type: "Residential", image: bedroomImage },
-  { title: "Gather around", type: "Residential", image: diningImage },
-  { title: "A place to make", type: "Custom Furniture", image: craftImage },
-  { title: "Work in warm tones", type: "Commercial", image: officeImage },
-  { title: "Sculptural simplicity", type: "Custom Furniture", image: sofaImage },
+  { title: "Customized kitchen layouts", type: "Modular Kitchen", image: diningImage },
+  { title: "Sliding and hinged storage", type: "Wardrobe", image: heroImage },
+  { title: "Ceilings with integrated lighting", type: "False Ceiling", image: officeImage },
+  { title: "TV units and living walls", type: "TV Unit", image: heroImage },
+  { title: "Beds, storage and side tables", type: "Bedroom", image: bedroomImage },
+  { title: "Sofas and complete living spaces", type: "Hall / Living", image: sofaImage },
+  { title: "Complete 1BHK and 2BHK interiors", type: "Full Home Project", image: craftImage },
 ];
 
 export const customSteps = [
@@ -157,7 +158,21 @@ export const customSteps = [
   },
 ];
 
-// Business phone number supplied for call and WhatsApp enquiries.
-export const businessConfig = { whatsappNumber: "919860196472", wholesaleEnabled: true };
+// Company details supplied for calls, visits and WhatsApp enquiries.
+export const businessConfig = {
+  name: "Aditya Furniture & Interior",
+  phoneNumbers: [
+    { label: "+91 9860 196472", href: "tel:+919860196472" },
+    { label: "+91 92849 81418", href: "tel:+919284981418" },
+  ],
+  email: "Interiorfurniture4@gmail.com",
+  whatsappNumber: "919860196472",
+  whatsappLabel: "+91 9860 196472",
+  address: "Shop No. 1, Titan Tower, Survey No. 39/A-1, near HDFC Bank, Pune",
+  website: "https://adityafurnitures.com",
+  businessHours: "10:00 AM–8:30 PM",
+  closedDay: "Thursday",
+  wholesaleEnabled: true,
+};
 export const whatsappLink = (message: string) =>
   `https://wa.me/${businessConfig.whatsappNumber}?text=${encodeURIComponent(message)}`;

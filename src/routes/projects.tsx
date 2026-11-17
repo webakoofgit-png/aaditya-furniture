@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Gallery } from "@/components/gallery";
 import { PageShell, PageIntro } from "@/components/site";
-import { projectGallery, images } from "@/lib/furniture-data";
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { images } from "@/lib/furniture-data";
 export const Route = createFileRoute("/projects")({
   head: () => ({ meta: [{ title: "Interior Ideas | Aditya Furniture and Interior" }] }),
   component: Projects,
@@ -11,9 +10,9 @@ function Projects() {
   return (
     <PageShell>
       <PageIntro
-        eyebrow="Home interior inspiration"
-        title="Ideas for your space."
-        description="Explore interior and furniture references as you plan a home tailored to your needs."
+        eyebrow="Service & product gallery"
+        title="Total Home Interiors, Manufactured for Life."
+        description="Explore modular kitchens, wardrobes, ceilings, living spaces, bedrooms and complete home interior references."
         image={images.hero}
       />
       <section className="section-wrap page-section">

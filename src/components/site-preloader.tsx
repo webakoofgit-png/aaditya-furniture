@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import brandLogo from "@/assets/aditya-furniture-logo.webp";
 
 const DISPLAY_TIME_MS = 1100;
 const EXIT_TIME_MS = 500;
@@ -58,7 +59,7 @@ export function SitePreloader() {
     >
       <div className="preloader-panel">
         <div className="preloader-brand" aria-hidden="true">
-          <span className="preloader-mark">A</span>
+          <img className="preloader-logo" src={brandLogo} alt="" width="72" height="72" />
           <span className="preloader-wordmark">
             <strong>ADITYA</strong>
             <small>FURNITURE &amp; INTERIOR</small>

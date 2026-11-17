@@ -60,7 +60,7 @@ function HomePage() {
         </div>
         <div className="hero-bottom">
           <span>DESIGN / MANUFACTURE / INSTALL</span>
-          <span>Complete end-to-end home interiors</span>
+          <span>Total Home Interiors, Manufactured for Life</span>
           <a href="#collections" aria-label="Scroll to services">
             <ArrowDown size={18} />
           </a>
@@ -308,8 +308,8 @@ function HomePage() {
           </Link>
         </Button>
         <span className="visit-placeholder">
-          Shop No. 1, Titan Tower, Survey No. 39/A-1, Near HDFC Bank | +91 9860196472 |
-          https://adityafurnitures.com
+          {businessConfig.address} | {businessConfig.phoneNumbers[0].label} /{" "}
+          {businessConfig.phoneNumbers[1].label} | {businessConfig.email}
         </span>
       </section>
     </PageShell>
