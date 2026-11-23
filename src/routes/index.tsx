@@ -1,9 +1,10 @@
-import { HomeGallery, Testimonials } from "@/components/home-extras";
+import { HomeGallery, ProjectVideos } from "@/components/home-extras";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell, SectionHeading } from "@/components/site";
 import { businessConfig, categories, images } from "@/lib/furniture-data";
+import homeVideo from "@/assets/home-video-optimized.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,15 +163,6 @@ function HomePage() {
       </section>
 
       <section className="craft-section section-wrap">
-        <div className="craft-image image-reveal">
-          <img
-            src={images.craft}
-            alt="Hands finishing the edge of a walnut furniture piece"
-            loading="lazy"
-            width={1200}
-            height={1400}
-          />
-        </div>
         <div className="craft-copy">
           <span className="eyebrow">Customized furniture | Made by us</span>
           <h2 className="serif">Your whole home, made to fit.</h2>
@@ -181,6 +173,17 @@ function HomePage() {
           <Link to="/custom-furniture" className="text-link">
             Explore custom furniture <ArrowRight size={16} />
           </Link>
+        </div>
+        <div className="craft-image image-reveal">
+          <video
+            src={homeVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="Customized furniture and home interior project showcase"
+          />
         </div>
       </section>
 
@@ -296,7 +299,7 @@ function HomePage() {
       )}
 
       <HomeGallery />
-      <Testimonials />
+      <ProjectVideos />
       <section className="section-wrap visit-strip">
         <div>
           <span className="eyebrow">Come see what feels right</span>

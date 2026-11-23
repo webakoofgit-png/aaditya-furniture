@@ -763,16 +763,21 @@ button:disabled {
 .craft-section {
   padding-block: 72px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10%;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.7fr);
+  gap: 8%;
   align-items: center;
 }
 .craft-image {
-  height: 650px;
+  width: min(100%, 420px);
+  height: 540px;
+  justify-self: end;
 }
-.craft-image img {
+.craft-image img,
+.craft-image video {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .craft-copy {
   position: relative;
@@ -1632,6 +1637,24 @@ button:disabled {
 .service-highlights svg {
   color: var(--walnut);
 }
+.service-gallery-section {
+  padding-top: 20px;
+}
+.service-gallery-grid {
+  columns: 3;
+  column-gap: 24px;
+}
+.service-gallery-grid figure {
+  margin: 0 0 24px;
+  break-inside: avoid;
+  overflow: hidden;
+  background: var(--secondary);
+}
+.service-gallery-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .service-options-section {
   padding-block: 85px;
   background: var(--charcoal);
@@ -1778,40 +1801,29 @@ button:disabled {
   text-align: left;
 }
 .testimonial-card {
-  min-height: 230px;
-  padding: 24px 22px;
+  min-height: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
   background: var(--card);
   border: 1px solid var(--line);
   box-shadow: 0 10px 28px rgb(40 32 24 / 5%);
 }
-.testimonial-mark {
-  color: var(--walnut);
-  font-family: "Playfair Display", serif;
-  font-size: 44px;
-  line-height: 0.9;
-}
-.testimonial-card blockquote {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(17px, 1.45vw, 21px);
-  line-height: 1.45;
-  margin: 16px 0 22px;
-  flex: 1;
-}
-.testimonial-card .eyebrow {
-  color: var(--muted-foreground);
-  font-size: 8px;
-}
-.testimonials > .demo-note {
-  margin: 18px auto 10px;
+.testimonial-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #111;
 }
 .testimonial-controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 14px;
+  margin-top: 22px;
   color: var(--muted-foreground);
   font-size: 10px;
 }
@@ -1868,12 +1880,6 @@ button:disabled {
   .mega-menu a {
     padding-bottom: 12px;
     border-bottom: 1px solid var(--line);
-  }
-  .mega-menu small {
-    display: block;
-    font-size: 9px;
-    opacity: 0.6;
-    margin-top: 7px;
   }
 }
 @media (max-width: 1100px) {
@@ -2159,7 +2165,9 @@ button:disabled {
     padding-block: 44px;
   }
   .craft-image {
+    width: 100%;
     height: 440px;
+    justify-self: stretch;
   }
   .craft-copy h2 {
     font-size: 44px;
@@ -2703,6 +2711,9 @@ html.preloader-active body {
   .related-service-card {
     height: 360px;
   }
+  .service-gallery-grid {
+    columns: 2;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2720,6 +2731,9 @@ html.preloader-active body {
   }
   .related-service-card {
     height: 380px;
+  }
+  .service-gallery-grid {
+    columns: 1;
   }
 }
 

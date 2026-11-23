@@ -64,7 +64,6 @@ export function SiteHeader() {
                       params={{ serviceId: service.id }}
                     >
                       {service.name}
-                      <small>{service.shortDescription}</small>
                     </Link>
                   ))}
                 </div>

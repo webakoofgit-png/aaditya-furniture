@@ -11,6 +11,28 @@ import bedroomImage from "@/assets/aaditya-bedroom.jpg";
 import diningImage from "@/assets/aaditya-dining.jpg";
 import officeImage from "@/assets/aaditya-office.jpg";
 import craftImage from "@/assets/aaditya-craft.jpg";
+import kitchenGallery1 from "@/assets/kitchen-images/kitchen-1.webp";
+import kitchenGallery2 from "@/assets/kitchen-images/kitchen-2.webp";
+import kitchenGallery3 from "@/assets/kitchen-images/kitchen-3.webp";
+import kitchenGallery4 from "@/assets/kitchen-images/kitchen-4.webp";
+import kitchenGallery5 from "@/assets/kitchen-images/kitchen-5.webp";
+import kitchenGallery6 from "@/assets/kitchen-images/kitchen-6.webp";
+import kitchenGallery7 from "@/assets/kitchen-images/kitchen-7.webp";
+import kitchenGallery8 from "@/assets/kitchen-images/kitchen-8.webp";
+import kitchenGallery9 from "@/assets/kitchen-images/kitchen-9.webp";
+import kitchenGallery10 from "@/assets/kitchen-images/kitchen-10.webp";
+import kitchenGallery11 from "@/assets/kitchen-images/kitchen.webp";
+import tvGallery1 from "@/assets/TV-units/tv-1.webp";
+import tvGallery2 from "@/assets/TV-units/tv-2.webp";
+import tvGallery3 from "@/assets/TV-units/tv-3.webp";
+import tvGallery4 from "@/assets/TV-units/tv-4.webp";
+import tvGallery5 from "@/assets/TV-units/tv-5.webp";
+import tvGallery6 from "@/assets/TV-units/tv-6.webp";
+import tvGallery7 from "@/assets/TV-units/tv-7.webp";
+import tvGallery8 from "@/assets/TV-units/tv-8.webp";
+import tvGallery9 from "@/assets/TV-units/tv-9.webp";
+import tvGallery10 from "@/assets/TV-units/tv-10.webp";
+import tvGallery11 from "@/assets/TV-units/tv.webp";
 
 export type Service = {
   id: string;
@@ -22,6 +44,8 @@ export type Service = {
   imageAlt: string;
   highlights: string[];
   options: string[];
+  galleryTitle?: string;
+  gallery?: { image: string; alt: string }[];
 };
 
 export const services: Service[] = [
@@ -37,6 +61,20 @@ export const services: Service[] = [
     imageAlt: "Contemporary modular kitchen with an island and full-height cabinetry",
     highlights: ["Made-to-measure layouts", "Factory-manufactured cabinets", "Hardware and finish choices"],
     options: ["L-shape", "U-shape", "Parallel", "Straight", "Island", "Tall and overhead storage"],
+    galleryTitle: "Kitchen designs made for real homes.",
+    gallery: [
+      { image: kitchenGallery1, alt: "Streamlined modular kitchen with sage cabinetry" },
+      { image: kitchenGallery2, alt: "Contemporary modular kitchen design" },
+      { image: kitchenGallery3, alt: "Custom kitchen cabinets and worktop" },
+      { image: kitchenGallery4, alt: "Modern fitted kitchen interior" },
+      { image: kitchenGallery5, alt: "Space-efficient modular kitchen layout" },
+      { image: kitchenGallery6, alt: "Premium full-height kitchen cabinetry" },
+      { image: kitchenGallery7, alt: "Compact custom kitchen installation" },
+      { image: kitchenGallery8, alt: "Designer modular kitchen with storage" },
+      { image: kitchenGallery9, alt: "Elegant contemporary kitchen interior" },
+      { image: kitchenGallery10, alt: "Made-to-measure modular kitchen" },
+      { image: kitchenGallery11, alt: "Finished modular kitchen project" },
+    ],
   },
   {
     id: "customized-furniture",
@@ -86,6 +124,20 @@ export const services: Service[] = [
     imageAlt: "Custom TV unit with fluted wall panels, storage and integrated lighting",
     highlights: ["Concealed cable planning", "Integrated storage", "Coordinated wall finishes"],
     options: ["Floating TV units", "Full living walls", "Fluted panels", "Display shelves", "Closed storage", "LED backlighting"],
+    galleryTitle: "TV units designed as part of the room.",
+    gallery: [
+      { image: tvGallery1, alt: "Custom TV unit with integrated wall storage" },
+      { image: tvGallery2, alt: "Contemporary TV wall with display shelving" },
+      { image: tvGallery3, alt: "Modern entertainment unit with panelled backdrop" },
+      { image: tvGallery4, alt: "Space-efficient TV unit and living wall" },
+      { image: tvGallery5, alt: "Full-height custom TV wall composition" },
+      { image: tvGallery6, alt: "Floating television cabinet with wall panels" },
+      { image: tvGallery7, alt: "Minimal custom TV unit for a living room" },
+      { image: tvGallery8, alt: "Designer TV wall with integrated storage" },
+      { image: tvGallery9, alt: "Contemporary television wall installation" },
+      { image: tvGallery10, alt: "Compact modern TV unit" },
+      { image: tvGallery11, alt: "Finished custom TV and living wall project" },
+    ],
   },
   {
     id: "bedroom-furniture",

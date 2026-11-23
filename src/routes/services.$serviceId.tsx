@@ -75,6 +75,22 @@ function ServiceDetailPage() {
         </div>
       </section>
 
+      {service.gallery && service.gallery.length > 0 && (
+        <section className="section-wrap page-section service-gallery-section">
+          <SectionHeading
+            eyebrow={`${service.name} inspiration`}
+            title={service.galleryTitle ?? `Explore our ${service.name.toLowerCase()} work.`}
+          />
+          <div className="service-gallery-grid">
+            {service.gallery.map((item) => (
+              <figure key={item.image} className="image-reveal">
+                <img src={item.image} alt={item.alt} loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="service-options-section">
         <div className="section-wrap">
           <SectionHeading

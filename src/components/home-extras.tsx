@@ -2,14 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Gallery } from "@/components/gallery";
 import { SectionHeading } from "@/components/site";
+import projectVideo1 from "@/assets/videos/project-1.mp4";
+import projectVideo2 from "@/assets/videos/project-2.mp4";
+import projectVideo3 from "@/assets/videos/project-3.mp4";
+import projectVideo4 from "@/assets/videos/project-4.mp4";
+import projectVideo5 from "@/assets/videos/project-5.mp4";
+import projectVideo6 from "@/assets/videos/project-6.mp4";
+import projectVideo7 from "@/assets/videos/project-7.mp4";
+import projectVideo8 from "@/assets/videos/project-8.mp4";
 
-const quotes = [
-  "A thoughtfully designed home brings comfort to the moments that matter.",
-  "The right furniture makes every corner feel like it belongs to you.",
-  "From kitchen to living room, a considered design brings the whole home together.",
-  "Made-to-fit furniture helps turn an idea for your home into a space you can live in.",
-  "Beautiful finishes and practical details make a home feel distinctly yours.",
-  "One plan, thoughtful workmanship and a home brought together from end to end.",
+const projectVideos = [
+  projectVideo1,
+  projectVideo2,
+  projectVideo3,
+  projectVideo4,
+  projectVideo5,
+  projectVideo6,
+  projectVideo7,
+  projectVideo8,
 ];
 
 export function HomeGallery() {
@@ -27,7 +37,7 @@ export function HomeGallery() {
   );
 }
 
-export function Testimonials() {
+export function ProjectVideos() {
   const [i, setI] = useState(0);
   const [visibleCount, setVisibleCount] = useState(4);
 
@@ -40,44 +50,41 @@ export function Testimonials() {
     return () => window.removeEventListener("resize", updateVisibleCount);
   }, []);
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setI((current) => (current + 1) % quotes.length);
-    }, 4000);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const visibleQuotes = Array.from(
+  const visibleVideos = Array.from(
     { length: visibleCount },
-    (_, offset) => (i + offset) % quotes.length,
+    (_, offset) => (i + offset) % projectVideos.length,
   );
 
   return (
     <section className="section-wrap testimonials">
-      <span className="eyebrow">Words for the way we live</span>
+      <span className="eyebrow">Project showcase</span>
       <div className="testimonial-grid" aria-live="polite">
-        {visibleQuotes.map((quoteIndex) => (
-          <article className="testimonial-card" key={quoteIndex}>
-            <span className="testimonial-mark" aria-hidden="true">
-              “
-            </span>
-            <blockquote>{quotes[quoteIndex]}</blockquote>
-            <span className="eyebrow">Home interior inspiration</span>
+        {visibleVideos.map((videoIndex) => (
+          <article className="testimonial-card" key={videoIndex}>
+            <video
+              src={projectVideos[videoIndex]}
+              controls
+              playsInline
+              preload="metadata"
+              aria-label={`Project video ${videoIndex + 1}`}
+            />
           </article>
         ))}
       </div>
-      <p className="demo-note">Sample testimonials · placeholder copy, not customer reviews.</p>
       <div className="testimonial-controls">
         <button
-          aria-label="Previous testimonials"
-          onClick={() => setI((i + quotes.length - 1) % quotes.length)}
+          aria-label="Previous projects"
+          onClick={() => setI((i + projectVideos.length - 1) % projectVideos.length)}
         >
           ←
         </button>
         <span>
-          {String(i + 1).padStart(2, "0")} / {String(quotes.length).padStart(2, "0")}
+          {String(i + 1).padStart(2, "0")} / {String(projectVideos.length).padStart(2, "0")}
         </span>
-        <button aria-label="Next testimonials" onClick={() => setI((i + 1) % quotes.length)}>
+        <button
+          aria-label="Next projects"
+          onClick={() => setI((i + 1) % projectVideos.length)}
+        >
           →
         </button>
       </div>

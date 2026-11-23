@@ -4,6 +4,7 @@ import diningImage from "@/assets/aaditya-dining.jpg";
 import craftImage from "@/assets/aaditya-craft.jpg";
 import sofaImage from "@/assets/aaditya-sofa.jpg";
 import officeImage from "@/assets/aaditya-office.jpg";
+import kitchenImage from "@/assets/kitchen-images/kitchen-1.webp";
 
 export const images = {
   hero: heroImage,
@@ -15,7 +16,7 @@ export const images = {
 };
 
 export const categories = [
-  { name: "Modular Kitchen", image: diningImage, note: "Customized layouts & finishes" },
+  { name: "Modular Kitchen", image: kitchenImage, note: "Customized layouts & finishes" },
   { name: "Sofas & Seating", image: sofaImage, note: "Made for gathering" },
   { name: "Beds & Bedroom", image: bedroomImage, note: "A slower kind of rest" },
   { name: "Dining", image: diningImage, note: "For moments around the table" },
@@ -126,7 +127,7 @@ export const products: Product[] = [
 ];
 
 export const projectGallery = [
-  { title: "Customized kitchen layouts", type: "Modular Kitchen", image: diningImage },
+  { title: "Customized kitchen layouts", type: "Modular Kitchen", image: kitchenImage },
   { title: "Sliding and hinged storage", type: "Wardrobe", image: heroImage },
   { title: "Ceilings with integrated lighting", type: "False Ceiling", image: officeImage },
   { title: "TV units and living walls", type: "TV Unit", image: heroImage },
