@@ -2850,3 +2850,221 @@ button,
 .preloader-wordmark small {
   font-size: 12px !important;
 }
+
+/* Mobile-first experience layer: shared spacing, stacking and touch targets. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 76px;
+  }
+  body {
+    overflow-x: clip;
+  }
+  .section-wrap {
+    width: min(calc(100% - 2rem), 1280px);
+  }
+  .header-inner {
+    height: 72px;
+    gap: 8px;
+  }
+  .brand-lockup {
+    min-width: 0;
+    gap: 8px;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+  .brand-wordmark strong {
+    font-size: 13px;
+  }
+  .brand-wordmark small {
+    font-size: 8px !important;
+    letter-spacing: 0.18em;
+  }
+  .header-inquiry {
+    min-height: 40px;
+    padding-inline: 12px !important;
+    white-space: nowrap;
+  }
+  .mobile-menu-button {
+    width: 44px !important;
+    height: 44px !important;
+    flex: 0 0 44px;
+  }
+  .mobile-nav {
+    max-height: calc(100svh - 72px);
+    overflow-y: auto;
+    padding: 8px 16px max(16px, env(safe-area-inset-bottom));
+  }
+  .mobile-nav a {
+    min-height: 48px;
+    align-items: center;
+    padding: 12px 8px;
+  }
+  .home-hero {
+    height: auto;
+    min-height: max(720px, 100svh);
+  }
+  .hero-content {
+    padding-top: 96px;
+    padding-bottom: 130px;
+  }
+  .hero-content h1 {
+    font-size: clamp(48px, 14vw, 58px);
+  }
+  .hero-content p {
+    max-width: 32ch;
+  }
+  .hero-actions [data-slot="button"],
+  .hero-text-link {
+    min-height: 48px;
+  }
+  .hero-bottom {
+    right: 16px;
+    bottom: 72px;
+    left: 16px;
+  }
+  .page-intro,
+  .page-intro-image {
+    min-height: 430px;
+    padding-top: 126px;
+    padding-bottom: 52px;
+  }
+  .page-intro h1 {
+    max-width: 100%;
+    font-size: clamp(44px, 13vw, 54px);
+    overflow-wrap: anywhere;
+  }
+  .page-section,
+  .service-options-section {
+    padding-block: 52px;
+  }
+  .section-heading h2,
+  .service-detail-intro h2 {
+    font-size: clamp(36px, 11vw, 44px);
+  }
+  .section-heading p {
+    max-width: none;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .field-wide {
+    grid-column: auto;
+  }
+  .field input,
+  .field select {
+    min-height: 48px;
+  }
+  .field textarea {
+    min-height: 120px;
+  }
+  .filter-tabs button,
+  .testimonial-controls button,
+  .lightbox-controls button {
+    min-height: 44px;
+  }
+  .collection-tools input,
+  .collection-tools select {
+    min-height: 46px;
+  }
+  .craft-image {
+    height: min(118vw, 440px);
+  }
+  .gallery-card,
+  .gallery-card:nth-child(3n + 2) {
+    height: min(105vw, 400px);
+  }
+  .service-detail-image {
+    aspect-ratio: 4 / 3;
+  }
+  .service-enquiry-inner [data-slot="button"],
+  .trade-inner [data-slot="button"],
+  .visit-strip [data-slot="button"],
+  .form-submit [data-slot="button"] {
+    min-height: 48px;
+    width: 100%;
+  }
+  .empty-state {
+    padding: 48px 16px;
+  }
+  .zoom-dialog {
+    width: calc(100vw - 24px) !important;
+    max-height: calc(100svh - 24px);
+    overflow-y: auto;
+  }
+  .lightbox-controls {
+    gap: 8px;
+  }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-card {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid,
+  .service-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-card,
+  .service-card-grid .category-card,
+  .service-card-grid .category-card:nth-child(3n + 1),
+  .service-card-grid .category-card:nth-child(3n + 2),
+  .service-card-grid .category-card:nth-child(4n + 2),
+  .service-card-grid .category-card:nth-child(4n + 4) {
+    height: 320px !important;
+    margin-top: 0 !important;
+  }
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+  .footer-brand,
+  .footer-note {
+    grid-column: auto;
+  }
+  .contact-detail {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-wordmark {
+    display: none;
+  }
+  .header-inquiry span {
+    display: none;
+  }
+  .header-inquiry {
+    width: 42px;
+    min-width: 42px;
+    padding: 0 !important;
+  }
+  .home-hero {
+    min-height: 800px;
+  }
+  .hero-content {
+    padding-top: 104px;
+    padding-bottom: 150px;
+  }
+  .hero-content h1 {
+    font-size: clamp(44px, 15vw, 52px);
+  }
+  .hero-actions {
+    gap: 8px;
+  }
+  .page-intro h1 {
+    font-size: clamp(40px, 14vw, 48px);
+  }
+}
