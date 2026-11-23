@@ -19,8 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "DM Sans", sans-serif;
-  --font-display: "Playfair Display", serif;
+  --font-sans: "Outfit", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -178,7 +178,7 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: "DM Sans", sans-serif;
+    font-family: "Outfit", sans-serif;
   }
   ::selection {
     background: var(--sand);
@@ -192,7 +192,7 @@
 
 @layer components {
   .serif {
-    font-family: "Playfair Display", serif;
+    font-family: "Cormorant Garamond", serif;
     letter-spacing: -0.025em;
   }
   .eyebrow {
@@ -336,7 +336,7 @@ button:disabled {
   border-radius: 50%;
 }
 .brand-wordmark strong {
-  font-family: "Manrope", sans-serif;
+  font-family: "Outfit", sans-serif;
   display: block;
   letter-spacing: 0.22em;
   font-size: 19px;
@@ -714,7 +714,7 @@ button:disabled {
   color: var(--walnut);
 }
 .product-info h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 26px;
   font-weight: 500;
   margin: 8px 0;
@@ -1225,7 +1225,7 @@ button:disabled {
 .process-tabs button span {
   display: block;
   font-size: 28px;
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", serif;
   margin-bottom: 20px;
   color: var(--walnut);
 }
@@ -2578,13 +2578,13 @@ html.preloader-active body {
   gap: 6px;
 }
 .preloader-wordmark strong {
-  font-family: "Manrope", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.3em;
 }
 .preloader-wordmark small {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 0.2em;
