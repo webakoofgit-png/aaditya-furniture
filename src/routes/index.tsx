@@ -1,6 +1,6 @@
-import { HomeGallery, ProjectVideos } from "@/components/home-extras";
+import { ProjectVideos } from "@/components/home-extras";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, MoveUpRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell, SectionHeading } from "@/components/site";
 import { businessConfig, categories, images } from "@/lib/furniture-data";
@@ -27,6 +27,53 @@ export const Route = createFileRoute("/")({
   }),
   component: HomePage,
 });
+
+const premiumPackages = [
+  {
+    name: "2 BHK Premium Package",
+    description: "Complete home furniture and interior",
+    features: [
+      "Modular kitchen with premium finish",
+      "2 bedroom wardrobes",
+      "2 beds with storage",
+      "Premium TV unit",
+      "Living room sofa set",
+      "Modern false ceiling",
+      "Designer wall panels",
+      "Dining table with chairs",
+      "Shoe rack and entrance unit",
+      "Curtains and lighting provisions",
+    ],
+  },
+  {
+    name: "3 BHK Premium Package",
+    description: "Complete luxury home furniture and interior",
+    features: [
+      "Premium modular kitchen",
+      "3 designer bedroom wardrobes",
+      "3 beds with storage",
+      "Luxury TV unit and wall panel",
+      "Premium living room sofa set",
+      "Designer false ceiling",
+      "6-seater dining table",
+      "Premium entrance shoe rack",
+      "Crockery unit",
+      "Study table and work station",
+      "Designer lighting provisions",
+      "Curtains and decorative finishes",
+    ],
+  },
+];
+
+const premiumFeatures = [
+  "CNC-designed wooden panels",
+  "Premium laminate, acrylic and PU finishes",
+  "Soft-close hardware",
+  "Custom-made furniture",
+  "Space-saving storage solutions",
+  "Professional installation",
+  "3D interior design preview",
+];
 
 function HomePage() {
   return (
@@ -212,6 +259,69 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="premium-packages-section" id="premium-packages">
+        <div className="section-wrap">
+          <SectionHeading
+            eyebrow="Premium complete-home packages"
+            title="One package. Your entire home."
+            copy="Thoughtfully planned furniture and interiors, custom-made for modern 2 BHK and 3 BHK homes."
+            linkText="Get a custom quote"
+            linkTo="/contact"
+          />
+
+          <div className="premium-package-grid">
+            {premiumPackages.map((homePackage, index) => (
+              <article
+                className={`premium-package-card premium-package-card-${index + 1}`}
+                key={homePackage.name}
+              >
+                <div className="premium-package-card-head">
+                  <span className="premium-package-number">0{index + 1}</span>
+                  <Sparkles aria-hidden="true" size={22} />
+                </div>
+                <h3 className="serif">{homePackage.name}</h3>
+                <p className="premium-package-description">{homePackage.description}</p>
+                <ul>
+                  {homePackage.features.map((feature) => (
+                    <li key={feature}>
+                      <Check aria-hidden="true" size={16} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link to="/contact" className="premium-package-link">
+                  Enquire about this package <ArrowRight aria-hidden="true" size={17} />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="premium-features-panel">
+            <div className="premium-features-intro">
+              <span className="eyebrow">Included premium features</span>
+              <h3 className="serif">Crafted around your space and lifestyle.</h3>
+              <p>
+                Premium materials, practical storage and a professionally managed finish from design
+                to installation.
+              </p>
+            </div>
+            <ul className="premium-features-list">
+              {premiumFeatures.map((feature) => (
+                <li key={feature}>
+                  <Check aria-hidden="true" size={17} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="premium-packages-signoff">
+            <strong>ADITYA FURNITURE &amp; INTERIOR</strong>
+            <span>Your Dream Home, Our Premium Craftsmanship.</span>
+          </p>
+        </div>
+      </section>
+
       <section className="section-wrap home-proof">
         <SectionHeading
           eyebrow="More home interior services"
@@ -298,7 +408,6 @@ function HomePage() {
         </section>
       )}
 
-      <HomeGallery />
       <ProjectVideos />
       <section className="section-wrap visit-strip">
         <div>
