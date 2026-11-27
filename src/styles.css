@@ -3277,7 +3277,11 @@ button,
     min-height: 46px;
   }
   .craft-image {
-    height: min(118vw, 440px);
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+  .craft-image video {
+    object-fit: contain;
   }
   .premium-packages-section {
     padding: 56px 0;
