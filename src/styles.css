@@ -1510,10 +1510,111 @@ button:disabled {
   line-height: 1.65;
   color: var(--muted-foreground);
 }
+.catalogue-block {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.catalogue-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.7fr);
+  gap: 8px 48px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.catalogue-heading .eyebrow {
+  grid-column: 1 / -1;
+}
+.catalogue-heading h3 {
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.catalogue-heading p {
+  max-width: 38ch;
+  color: var(--muted-foreground);
+  line-height: 1.65;
+}
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.catalogue-card {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklch, var(--background) 72%, transparent);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+.catalogue-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in oklch, var(--walnut) 55%, var(--line));
+  background: var(--background);
+}
+.catalogue-card-top,
+.catalogue-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.catalogue-card-top {
+  color: var(--walnut);
+}
+.catalogue-number {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+}
+.catalogue-card h4 {
+  max-width: 18ch;
+  margin-bottom: 12px;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.catalogue-card p {
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+.catalogue-actions {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.catalogue-actions a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.catalogue-actions a:first-child:hover svg {
+  transform: translate(2px, -2px);
+}
+.catalogue-actions svg {
+  transition: transform 180ms ease;
+}
+.catalogue-download {
+  width: 44px;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+.catalogue-download:hover {
+  border-color: var(--walnut);
+  color: var(--walnut);
+}
 .form-layout {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 90px;
+  grid-template-columns: minmax(270px, 0.65fr) minmax(0, 1.55fr);
+  gap: clamp(48px, 6vw, 84px);
   align-items: start;
 }
 .form-layout h2 {
@@ -1528,17 +1629,17 @@ button:disabled {
 }
 .inquiry-form {
   border-top: 1px solid var(--line);
-  padding-top: 28px;
+  padding-top: 40px;
 }
 .inquiry-form h3 {
-  font-size: 34px;
+  font-size: clamp(36px, 3.1vw, 44px);
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px 22px;
+  gap: 34px 28px;
 }
 .field {
   display: flex;
@@ -1562,7 +1663,12 @@ button:disabled {
   width: 100%;
   color: var(--charcoal);
 }
+.field input,
+.field select {
+  min-height: 58px;
+}
 .field textarea {
+  min-height: 105px;
   resize: vertical;
 }
 .field-wide {
@@ -1578,6 +1684,8 @@ button:disabled {
   max-width: 450px;
 }
 .form-submit [data-slot="button"] {
+  min-height: 46px;
+  padding-inline: 20px;
   border-radius: 0;
 }
 .contact-detail {
@@ -2174,6 +2282,13 @@ button:disabled {
   .material-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .catalogue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .catalogue-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 260px;
+  }
 }
 @media (max-width: 600px) {
   .welcome-section {
@@ -2510,6 +2625,26 @@ button:disabled {
   .material-grid p {
     font-size: 9px;
   }
+  .catalogue-block {
+    margin-top: 44px;
+    padding-top: 36px;
+  }
+  .catalogue-heading,
+  .catalogue-grid {
+    grid-template-columns: 1fr;
+  }
+  .catalogue-heading {
+    gap: 12px;
+  }
+  .catalogue-heading .eyebrow,
+  .catalogue-card:last-child {
+    grid-column: auto;
+  }
+  .catalogue-card,
+  .catalogue-card:last-child {
+    min-height: 270px;
+    padding: 24px;
+  }
   .form-layout h2 {
     font-size: 46px;
   }
@@ -2730,8 +2865,8 @@ html.preloader-active body {
 }
 .preloader-logo {
   display: block;
-  width: 72px;
-  height: 72px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   border-radius: 50%;
   animation: preloader-mark-in 650ms 100ms ease-out both;
@@ -2842,11 +2977,14 @@ html.preloader-active body {
     gap: 14px;
   }
   .preloader-logo {
-    width: 60px;
-    height: 60px;
+    width: 112px;
+    height: 112px;
   }
   .preloader-wordmark strong {
-    font-size: 16px;
+    font-size: 21px;
+  }
+  .preloader-wordmark small {
+    font-size: 14px !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -3127,7 +3265,7 @@ button,
     min-height: 48px;
   }
   .field textarea {
-    min-height: 120px;
+    min-height: 100px;
   }
   .filter-tabs button,
   .testimonial-controls button,

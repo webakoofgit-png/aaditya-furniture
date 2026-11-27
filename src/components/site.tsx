@@ -196,6 +196,9 @@ export function SiteFooter() {
         >
           WhatsApp enquiry
         </a>
+        <a href="https://webakoof.com/" target="_blank" rel="noreferrer">
+          Designed by Webakoof
+        </a>
       </div>
     </footer>
   );
@@ -295,6 +298,12 @@ export function InquiryForm({
   button?: string;
 }) {
   const [prepared, setPrepared] = useState(false);
+  const autocompleteFor = (name: string) => {
+    if (name === "name") return "name";
+    if (name === "phone") return "tel";
+    if (name === "email") return "email";
+    return undefined;
+  };
   const submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
@@ -343,6 +352,8 @@ export function InquiryForm({
               <input
                 name={field.name}
                 type={field.type || "text"}
+                autoComplete={autocompleteFor(field.name)}
+                inputMode={field.type === "tel" ? "tel" : undefined}
                 min={field.type === "number" ? 1 : undefined}
                 pattern={field.type === "tel" ? "[+]?[0-9 ]{10,18}" : undefined}
                 title={
@@ -360,7 +371,7 @@ export function InquiryForm({
           {button}
           <ArrowRight />
         </Button>
-        <p>
+        <p aria-live="polite">
           {prepared
             ? "Your message was prepared. If WhatsApp did not open, allow pop-ups and try again."
             : "A WhatsApp message will open with your details, addressed to Aditya Furniture and Interior."}

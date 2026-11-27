@@ -1,10 +1,22 @@
 import { ProjectVideos } from "@/components/home-extras";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowDown, ArrowRight, ArrowUpRight, Check, MoveUpRight, Sparkles } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Download,
+  FileText,
+  MoveUpRight,
+  Sparkles,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageShell, SectionHeading } from "@/components/site";
 import { businessConfig, categories, images } from "@/lib/furniture-data";
 import homeVideo from "@/assets/home-video-optimized.mp4";
+import bedroomCatalogue from "@/assets/Aditya_Furniture_Interior_Bedroom_Package_Catalogue.pdf";
+import interiorCatalogue from "@/assets/Aditya_Furniture_Interior_Catalogue.pdf";
+import kitchenCatalogue from "@/assets/Aditya_Furniture_Interior_Modular_Kitchen_Packages.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,6 +85,24 @@ const premiumFeatures = [
   "Space-saving storage solutions",
   "Professional installation",
   "3D interior design preview",
+];
+
+const catalogues = [
+  {
+    title: "Complete Interior Catalogue",
+    description: "Explore our complete range of furniture and interior solutions.",
+    href: interiorCatalogue,
+  },
+  {
+    title: "Bedroom Package Catalogue",
+    description: "Browse bedroom furniture packages designed for modern homes.",
+    href: bedroomCatalogue,
+  },
+  {
+    title: "Modular Kitchen Packages",
+    description: "Discover modular kitchen layouts, finishes and package options.",
+    href: kitchenCatalogue,
+  },
 ];
 
 function HomePage() {
@@ -205,6 +235,41 @@ function HomePage() {
                 </article>
               ),
             )}
+          </div>
+
+          <div className="catalogue-block">
+            <div className="catalogue-heading">
+              <span className="eyebrow">Our catalogues</span>
+              <h3 className="serif">Explore our interior packages.</h3>
+              <p>Open a catalogue online or download a copy to view later.</p>
+            </div>
+            <div className="catalogue-grid">
+              {catalogues.map((catalogue, index) => (
+                <article className="catalogue-card" key={catalogue.title}>
+                  <div className="catalogue-card-top">
+                    <span className="catalogue-number">0{index + 1}</span>
+                    <FileText aria-hidden="true" size={24} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h4>{catalogue.title}</h4>
+                    <p>{catalogue.description}</p>
+                  </div>
+                  <div className="catalogue-actions">
+                    <a href={catalogue.href} target="_blank" rel="noreferrer">
+                      View catalogue <ArrowUpRight aria-hidden="true" size={17} />
+                    </a>
+                    <a
+                      className="catalogue-download"
+                      href={catalogue.href}
+                      download
+                      aria-label={`Download ${catalogue.title}`}
+                    >
+                      <Download aria-hidden="true" size={17} />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
